@@ -1,0 +1,54 @@
+extends layout
+
+block content
+  h1 Edit User
+  //- Form to update user information
+  form(action=`/users/${user._id}?_method=PUT`, method='POST', class='w3-container w3-padding-16 w3-card-4')
+
+    div(class='w3-section')
+      label(for='firstName') First Name
+      input(type='text', name='firstName', value=user.firstName, required, class='w3-input w3-border')
+    div(class='w3-section')
+      label(for='lastName') Last Name
+      input(type='text', name='lastName', value=user.lastName, required, class='w3-input w3-border')
+    div(class='w3-section')
+      label(for='dateOfBirth') Date of Birth
+      input(type='date', name='dateOfBirth', value=user.dateOfBirth ? user.dateOfBirth.toISOString().split('T')[0] : '', required, class='w3-input w3-border')
+    div(class='w3-section')
+      label(for='address1') Address 1
+      input(type='text', name='address1', value=user.address1, required, class='w3-input w3-border')
+    div(class='w3-section')
+      label(for='address2') Address 2
+      input(type='text', name='address2', value=user.address2, class='w3-input w3-border')
+    div(class='w3-section')
+      label(for='city') City
+      input(type='text', name='city', value=user.city, required, class='w3-input w3-border')
+    div(class='w3-section')
+      label(for='postalCode') Postal Code
+      input(type='text', name='postalCode', value=user.postalCode, required, class='w3-input w3-border')
+    div(class='w3-section')
+      label(for='country') Country
+      input(type='text', name='country', value=user.country, required, class='w3-input w3-border')
+    div(class='w3-section')
+      label(for='phoneNumber') Phone Number
+      input(type='tel', name='phoneNumber', value=user.phoneNumber, required, class='w3-input w3-border')
+    div(class='w3-section')
+      label(for='email') Email
+      input(type='email', name='email', value=user.email, required, class='w3-input w3-border')
+    div(class='w3-section')
+      label(for='notes') User Notes
+      textarea(name='notes', class='w3-input w3-border')= user.notes
+    div(class='w3-section')
+      button(type='submit', class='w3-button w3-blue') Update User
+    div(class='w3-section')
+      a(href='/users') Back to User List
+
+  //- Form to delete user
+  form(method="POST" action=`/users/${user._id}?_method=DELETE` onsubmit="return confirmDelete()")
+    button.w3-button.w3-red.w3-round.w3-margin-top(type="submit") Delete
+
+  //-Confirm Delete
+  script.
+    function confirmDelete() {
+      return confirm("Are you sure you want to delete this user?");
+    }

@@ -1,0 +1,39 @@
+doctype html
+html
+  head
+    title User Management
+    link(rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css")
+    style.
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+      }
+      .sidebar {
+        width: 200px;
+        position: fixed;
+        height: 100%;
+        background-color: #333;
+        padding-top: 20px;
+      }
+      .sidebar a {
+        padding: 10px 15px;
+        text-decoration: none;
+        font-size: 18px;
+        color: white;
+        display: block;
+      }
+      .sidebar a:hover {
+        background-color: #575757;
+      }
+      .content {
+        margin-left: 220px;
+        padding: 20px;
+      }
+  body
+    .sidebar
+      a(href="/users") Home
+      a(href="/users/new") Add User
+    .content
+      h1(style="color: #333") User Management System
+      hr
+      block content

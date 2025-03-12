@@ -1,0 +1,40 @@
+extends layout
+
+block content
+  h1 Add New User
+  form(action='/users', method='POST', class='w3-container w3-padding-16 w3-card-4')
+    div(class='w3-section')
+      label(for='firstName') First Name
+      input(type='text', name='firstName', required, class='w3-input w3-border')
+    div(class='w3-section')
+      label(for='lastName') Last Name
+      input(type='text', name='lastName', required, class='w3-input w3-border')
+    div(class='w3-section')
+      label(for='dateOfBirth') Date of Birth
+      input(type='date', name='dateOfBirth', required, class='w3-input w3-border')
+    div(class='w3-section')
+      label(for='address1') Address 1
+      input(type='text', name='address1', required, class='w3-input w3-border')
+    div(class='w3-section')
+      label(for='address2') Address 2
+      input(type='text', name='address2', class='w3-input w3-border')
+    div(class='w3-section')
+      label(for='city') City
+      input(type='text', name='city', required, class='w3-input w3-border')
+    div(class='w3-section')
+      label(for='postalCode') Postal Code
+      input(type='text', name='postalCode', required, class='w3-input w3-border')
+    div(class='w3-section')
+      label(for='country') Country
+      input(type='text', name='country', required, class='w3-input w3-border')
+    div(class='w3-section')
+      label(for='phoneNumber') Phone Number
+      input(type='tel', name='phoneNumber', required, class='w3-input w3-border')
+    div(class='w3-section')
+      label(for='email') Email
+      input(type='email', name='email', required, class='w3-input w3-border')
+    div(class='w3-section')
+      label(for='notes') User Notes
+      textarea(name='notes', class='w3-input w3-border')
+    div(class='w3-section')
+      button(type='submit', class='w3-button w3-blue') Submit

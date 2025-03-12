@@ -1,0 +1,38 @@
+extends layout
+
+block content
+  // ============================
+  // Author: Keerthana Thangavelu
+  // Student Number: C0932267
+  // Date: March 11, 2025
+  // Description: User List Page for CRUD Application
+  // ============================
+  h2(style="color: #444") Users List
+  
+  input.w3-input.w3-border(type="text" id="search" placeholder="Search users...")
+    //- The table below displays the list of users with options to edit or delete
+  table.w3-table.w3-bordered.w3-striped
+    thead
+      tr.w3-light-grey
+        th First Name
+        th Last Name
+        th Email
+        th Actions
+    tbody(id="userTable")
+      each user in users
+        tr
+          td= user.firstName
+          td= user.lastName
+          td= user.email
+          td
+            a.w3-button.w3-blue.w3-small(href=`/users/${user._id}/edit`) Edit
+  
+  script.
+    document.getElementById("search").addEventListener("input", function() {
+      let filter = this.value.toLowerCase();
+      let rows = document.querySelectorAll("#userTable tr");
+      rows.forEach(row => {
+        let name = row.cells[1].textContent.toLowerCase();
+        row.style.display = name.includes(filter) ? "" : "none";
+      });
+    });
